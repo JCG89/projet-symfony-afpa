@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+{% block title pin.title %}
+{% block body %}
+<div class="row">
+  <div class="col-md-6 mx-auto">
+      <article class="pin bg-white rounded shadow">
+         <div class="mw-100 rounded-top overflow-hidden">
+             <a href="{{ path('app_pins_show',{id:pin.id})}}">
+             <img src="{{pin.imageName ? vich_uploader_asset(pin)|imagine_filter
+             ('squared_thumbnail_medium') }}" alt="{{ pin.title }}"class="w-100
+              " />
+              </a>
+          </div>
+          <div class="p-3">
+              <h1 class="h5 text-secondary">{{ pin.title}}</h1>
+            
+              <p class="text-muted">
+                 <small>
+                    Edited 
+                    <time datetime="{{ pin.createdAt|date('Y-m-d H:i:s')}}">{{ pin.
+                    createdAt|ago }} by </time>
+                    {{pin. user.prenom }} {{pin. user.nom }}
+                </small>
+              </p>
+              <p class="pt-3 text-break">
+                 {{ pin.description}}
+              </p>
+       
+   <div class="pt-3">
+        <a href = "{{path('app_pins_edit',{id:pin.id})}}"class="btn btn-light">Editer</a>
+        <a href="#"onclick="event.preventDefault();confirm('Êtes-vous sûre de vouloir supprimer cet élements?')&& document.getElementById('js-pin-delete-form').submit();"class="btn btn-light">Supprimer</a>
+      <form id="js-pin-delete-form"  action ="{{path('app_pins_delete',{id:pin.id})}}"method ="post"style="display:none;">
+        <input type="hidden"name="csrf_token"value="{{csrf_token('pin.delete'~ pin.id)}}">
+        <input type= "hidden"name= "_method"value="DELETE">
+      </form>
+     </div>
+    </div>
+   </article>
+</div>
+</div>
+{% endblock %}

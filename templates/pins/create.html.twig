@@ -1,0 +1,11 @@
+{%  extends "base.html.twig" %}
+{% block new Pin %}
+
+{% block body %}
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+        <h1>Créer un monument</h1>
+        {{ include('pins/_form.html.twig') }}
+    </div>
+  </div>
+{% endblock %}

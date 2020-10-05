@@ -1,0 +1,52 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap");
+
+@import "~bootstrap/scss/bootstrap";
+
+html,body{
+    font-family: 'Montserrat', sans-serif;
+    background-color:gainsboro;
+}
+section{
+    h1{
+        color:green;
+        a{
+         color:red;
+        }
+    }
+}
+
+ .alert{
+     padding:10px;
+     color:white;
+     text-align:center;
+     margin:0;
+     border:none;
+     border-radius:0;
+ }
+ .alert-success{
+     background-color:green;
+ }
+ .alert-error{
+     background-color:red;
+ }
+ .alert-info{
+     background-color:blue;
+ }
+ .vich-image .form-check{
+    @extend .mt-3;
+}
+ .vich-image img{
+    @extend .mb-4, .rounded,.shadow ,.img-thumbnail;
+  
+ }
+ .pin img{
+     transition:transform 0.3 ease-out;
+     &:hover{
+         transform: scale(1.075);
+     }
+ }
+ body{
+     background-image: url('../public/images/sunset.jpg');
+ }
+ 

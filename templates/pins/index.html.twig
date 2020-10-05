@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}GUIDE DU TOURISTE{% endblock %}
+
+{% block body %}
+   {% if pins|length > 0 %}
+     {# <h1 class="mb-4 text-center text-muted">{{ pluralize(pins|length,'pin','pins')}}</h1> #}
+  
+  {% for row in pins|batch(3) %}  
+  <div class="row mb-4"> 
+     {% for pin in row %}
+     <div  class="col-md-4">
+       <article class="pin bg-white rounded shadow">
+         <div class="mw-100 rounded-top overflow-hidden">
+             <a href="{{ path('app_pins_show',{id:pin.id})}}">
+             <img src="{{pin.imageName ? vich_uploader_asset(pin)|imagine_filter
+             ('squared_thumbnail_medium') }}" alt="{{ pin.title }}"class="w-100
+              " />
+              </a>
+         </div>
+              <h2 class="h5 pl-3 pt-3"><a href ="{{path('app_pins_show',{id:pin.id})}}"class
+             ="text-secondary text-decoration-none">{{ pin.title}}</a></h2>
+              <p class="pl-3 pb-3 text-muted"><small>Editer par {{pin.user.prenom}}  {{pin.user.nom}}</small></p>
+       </article>
+      </div>
+     {% endfor %}
+  </div>
+  {% endfor %}
+   {% else %}
+       <p class="h1 mt-5 text-center">Aucun monument  pour l'instant.<a href ="{{path('app_pins_create')}}">Soyez le premier</a></p>
+{% endif %}
+{% endblock %}

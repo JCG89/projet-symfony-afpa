@@ -1,0 +1,12 @@
+{%  extends "base.html.twig" %}
+
+{% block Edit Pin  ~ pin.id %}
+
+{% block body %}
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <h1>Editer un Pin #{{pin.id}}</h1>
+      {{ include('pins/_form.html.twig',{'submitButtonText':'Editer un Pin'}) }}
+    </div>
+  </div>
+{% endblock %}
