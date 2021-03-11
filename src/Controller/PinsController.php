@@ -70,7 +70,7 @@ class PinsController extends AbstractController
              $form->handleRequest($request);
              if($form->isSubmitted()&& $form->isValid()){
              $em->flush();
-             $this->addFlash('success','Le Pin a été modifié avec succes');
+             $this->addFlash('success','Le monument a été modifié avec succes');
         
              return $this->redirectToRoute("app_home");
             }
@@ -89,7 +89,7 @@ class PinsController extends AbstractController
         }
         $em->remove($pin);
         $em->flush();
-        $this->addFlash('info','Le Pin a été supprimé avec succes!');
+        $this->addFlash('info','Le monument a été supprimé avec succes!');
 
         return $this->redirectToRoute("app_home");
        return $this->render("/pins/delete.html.twig");
