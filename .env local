@@ -1,0 +1,2 @@
+DATABASE_URL=mysql://root:@127.0.0.1:3306/panterest
+MAILER_DSN=smtp://40910433aa42c3:53da54174f2724@smtp.mailtrap.io:2525
